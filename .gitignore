@@ -23,3 +23,9 @@ go.work.sum
 
 # env file
 .env
+/.idea/codeStyles/codeStyleConfig.xml
+/.idea/.gitignore
+/.idea/material_theme_project_new.xml
+/.idea/modules.xml
+/.idea/snakeyray.iml
+/.idea/vcs.xml
