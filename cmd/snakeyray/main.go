@@ -4,21 +4,27 @@ import (
 	"log"
 
 	rl "github.com/gen2brain/raylib-go/raylib"
+
+	"github.com/pipexlul/snakeyray/cmd/config"
+	gamewindow "github.com/pipexlul/snakeyray/src/game_window"
 )
 
 func main() {
 	rl.SetTraceLogLevel(rl.LogError)
-	rl.InitWindow(800, 600, "Snakey")
+
+	gameWindow := gamewindow.NewGameWindow(
+		config.NewWindowConfig(
+			config.WithTargetFPS(90),
+		),
+	)
 
 	log.Print("Hello Snakey!")
+	gameWindow.Create()
+
 	defer func() {
 		log.Print("Bye Snakey!")
-		rl.CloseWindow()
+		gameWindow.Dispose()
 	}()
-
-	rl.SetTargetFPS(60)
-
-	rl.DrawText("Snakey", 10, 10, 20, rl.White)
 
 	for !rl.WindowShouldClose() {
 		rl.BeginDrawing()
